@@ -1,0 +1,17 @@
+<h1>Pixabay Search Image</h1>
+
+<form class="search-container" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <input ngModel name="mot" [(ngModel)]="keyword" type="text" class="search-input" placeholder="Search for images">
+  <button type="submit" class="search-btn">Find images</button>
+</form>
+
+<!-- Liste des résultats sous forme de gridlist -->
+<br>
+<br>
+<br>
+<h1 *ngIf="photos">Results</h1>
+<ul class="row row-cols-3">
+
+  <app-photo *ngFor="let elt of photos;" [photo]="elt" (productSelected)="affiche($event)"></app-photo>
+
+</ul>
